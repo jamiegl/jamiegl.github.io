@@ -172,7 +172,7 @@
       <if variable="URL">
         <group delimiter=". ">
           <group delimiter=": ">
-            <text term="available at" text-case="capitalize-first"/>
+            <!-- <text term="available at" text-case="capitalize-first"/> -->
             <text variable="URL"/>
           </group>
           <group prefix="[" suffix="]" delimiter=": ">

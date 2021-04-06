@@ -4,7 +4,7 @@
  <title>Jamie O'Reilly-Gall</title>
  <link href="/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2021-04-04T01:55:08+01:00</updated>
+ <updated>2021-04-06T18:24:25+01:00</updated>
  <id></id>
  <author>
    <name>Jamie O'Reilly-Gall</name>
@@ -17,7 +17,7 @@
    <link href="/2020/04/03/introducing-lanyon/"/>
    <updated>2020-04-03T00:00:00+01:00</updated>
    <id>/2020/04/03/introducing-lanyon</id>
-   <content type="html">&lt;p&gt;Lanyon is an unassuming &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; &lt;a class=&quot;citation&quot; href=&quot;#ruby&quot;&gt;[1]&lt;/a&gt; theme that places content first by tucking away navigation in a hidden drawer. It’s based on &lt;a href=&quot;http://getpoole.com&quot;&gt;Poole&lt;/a&gt;, the Jekyll butler.&lt;/p&gt;
+   <content type="html">&lt;p&gt;Lanyon is an unassuming &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; (missing reference) theme that places content first by tucking away navigation in a hidden drawer. It’s based on &lt;a href=&quot;http://getpoole.com&quot;&gt;Poole&lt;/a&gt;, the Jekyll butler.&lt;/p&gt;
 
 &lt;h3 id=&quot;built-on-poole&quot;&gt;Built on Poole&lt;/h3&gt;
 
@@ -55,11 +55,10 @@
 
 &lt;p&gt;Thanks!&lt;/p&gt;
 
-&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;ruby&quot;&gt;D. Flanagan and Y. Matsumoto, &lt;i&gt;The Ruby Programming Language&lt;/i&gt;. O’Reilly Media, 2008. &lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;knuthwebsite&quot;&gt;D. Knuth, “Knuth: Computers and Typesetting.” [Online]. Available at: http://www-cs-faculty.stanford.edu/ uno/abcde.html&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;bashspecialvar&quot;&gt;“Bash Special Parameters.” [Online]. Available at: https://www.gnu.org/software/bash/manual/html_node/Special-Parameters.html&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;bashvarindex&quot;&gt;“Bash Variable Index.” [Online]. Available at: https://www.gnu.org/software/bash/manual/html_node/Variable-Index.html&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;test&quot;&gt;test, “test” [Online]. Available at: &lt;a href=&quot;http://google.com&quot;&gt;http://google.com&lt;/a&gt;&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;bashvarindex&quot;&gt;&lt;a href=&quot;https://www.gnu.org/software/bash/manual/html_node/Variable-Index.html&quot;&gt;https://www.gnu.org/software/bash/manual/html_node/Variable-Index.html&lt;/a&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;bashspecialvar&quot;&gt;&lt;a href=&quot;https://www.gnu.org/software/bash/manual/html_node/Special-Parameters.html&quot;&gt;https://www.gnu.org/software/bash/manual/html_node/Special-Parameters.html&lt;/a&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;bashvargist&quot;&gt;&lt;a href=&quot;http://zyxue.github.io/2015/03/21/meaning-of-dollar-sign-variables-in-bash-script.html&quot;&gt;http://zyxue.github.io/2015/03/21/meaning-of-dollar-sign-variables-in-bash-script.html&lt;/a&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;jsmonkeypatch&quot;&gt;&lt;a href=&quot;https://github.com/inukshuk/jekyll-scholar/issues/30&quot;&gt;https://github.com/inukshuk/jekyll-scholar/issues/30&lt;/a&gt;&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
 </content>
  </entry>
  

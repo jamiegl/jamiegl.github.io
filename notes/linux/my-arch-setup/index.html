@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      My Arch Linux Setup &middot; Jamie O'Reilly-Gall
+    
+  </title>
+
+  
+  <link rel="canonical" href="/notes/linux/my-arch-setup/">
+  
+
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" checked>
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Notes, written with <a href="https://jekyllrb.com" target="_blank">Jekyll</a> using the <a href="https://lanyon.getpoole.com/">Lanyon</a> theme.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/notes/jekyll/">Jekyll Notes</a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/notes/linux/">Linux Notes</a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    <span class="sidebar-nav-item">Currently v1.1.0</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2021. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <body class="layout-reverse theme-base-08">
+        <div class = "wrap">
+          <div class="masthead">
+            <div class="container">
+              <h3 class="masthead-title">
+                <a href="/" title="Home">Jamie O'Reilly-Gall</a>
+                <small>Blog/Notes</small>
+              </h3>
+            </div>
+          </div>
+
+          <div class="container content">
+            <!-- 
+
+<a href=/notes/linux>/linux</a> -->
+
+<div class="notes">
+  <h1 class="notes-title">My Arch Linux Setup</h1>
+  <h3 id="table-of-contents">Table of contents</h3>
+<ul>
+  <li><a href="#critical-services">Critical Services</a></li>
+  <li><a href="#shell">Shell</a></li>
+  <li><a href="#terminal">Terminal</a></li>
+  <li><a href="#window-manager">Window Manager</a></li>
+  <li><a href="#picom">Picom</a></li>
+  <li><a href="#audio">Audio</a></li>
+  <li><a href="#screenshots">Screenshots</a></li>
+  <li><a href="#todo">Todo</a></li>
+</ul>
+
+<h2 id="critical-services">Critical Services</h2>
+
+<p>Certain services need to open on startup - use:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>systemctl <span class="nb">enable</span> &lt;service&gt;
+</code></pre></div></div>
+<p>to do this. To get currently enabled services use:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>systemctl list-unit-files | <span class="nb">grep </span>enabled
+</code></pre></div></div>
+
+<p>Notable services to enable on startup:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">ntpd.service</code> - <a href="https://wiki.archlinux.org/index.php/Network_Time_Protocol_daemon#Start_ntpd_at_boot">Time synchronisation</a></li>
+  <li><code class="language-plaintext highlighter-rouge">snapd.socket</code> - Daemon to interact with <a href="https://wiki.archlinux.org/index.php/Snap">snap</a> - snaps packages up common software tools (i.e. Skype) for easy Linux deployments (don’t use much due to AUR).</li>
+  <li><code class="language-plaintext highlighter-rouge">dhcpcd.service</code> - DHCP client, needed for internet connectivity.</li>
+  <li><code class="language-plaintext highlighter-rouge">iwd.service</code> - WiFi daemon interacted with using <code class="language-plaintext highlighter-rouge">iwctl</code></li>
+  <li><code class="language-plaintext highlighter-rouge">bluetooth.service</code>  - Bluetooth daemon, interacted with using <code class="language-plaintext highlighter-rouge">blutetoothctl</code>.</li>
+</ul>
+
+<h2 id="shell">Shell</h2>
+
+<p>Currently using fish with spacefish package. Issues:</p>
+<ul>
+  <li>Spacefish slows down the terminal - alot going on, maybe try <a href="https://starship.rs/">starship</a></li>
+  <li>Fish autocomplete is good, but having to drop to bash to get scripts working can be annoying.</li>
+</ul>
+
+<p>Fish layout config can be found <a href="https://github.com/jamiegl/config-dot/blob/main/fish/config.fish">here</a></p>
+
+<h2 id="terminal">Terminal</h2>
+
+<p>Using termite - see <a href="https://github.com/jamiegl/config-dot/blob/main/termite/config">here</a> for colour scheme. Opacity requires picom.</p>
+
+<h2 id="window-manager">Window Manager</h2>
+
+<p>Using i3 (<a href="https://github.com/Airblader/i3">gaps</a>) tiling window manager. Config file can be found <a href="https://github.com/jamiegl/config-dot/blob/main/i3/config">here</a>. Launched using <code class="language-plaintext highlighter-rouge">.xinitrc</code> - see <a href="https://github.com/jamiegl/config-dot/blob/main/X/.xinitrc">here</a>.</p>
+
+<h2 id="picom">Picom</h2>
+
+<p>Picom is a compositor (not sure what that is though) - allows for extra visual functionality such as opacity and shadows. Have this in i3 dotfile to launch it -</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exec --no-startup-id picom -b
+</code></pre></div></div>
+
+<h2 id="audio">Audio</h2>
+
+<p>Need <a href="https://archlinux.org/packages/extra/x86_64/pulseaudio/">Pulseaudio</a> and <a href="https://archlinux.org/packages/extra/x86_64/alsa-utils/">alsa-utils</a> is handy for <code class="language-plaintext highlighter-rouge">alsamixer</code>. Fixes for no audio -</p>
+
+<ul>
+  <li>
+    <p>Check if daemon is running</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>pulseaudio <span class="nt">--check</span> <span class="nt">-v</span> 
+<span class="c"># If response says 'Daemon not running' then start</span>
+<span class="nv">$ </span>pulseaudio <span class="nt">--start</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Restart Pulseaudio daemon</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>pulseaudio <span class="nt">-k</span>
+<span class="nv">$ </span>pulseaudio <span class="nt">--start</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Check default sink and set to correct</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>pacmd list-sinks
+<span class="c"># set desired device (using the index) as default</span>
+<span class="nv">$ </span>pacmd set-default-sink &lt;index-of-sink&gt;
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="screenshots">Screenshots</h2>
+
+<p>Using <a href="https://archlinux.org/packages/community/x86_64/maim/">maim</a>. Keybinds defined in i3 config file -</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bindsym $mod+shift+s exec maim -s | xclip -selection clipboard -t image/png
+</code></pre></div></div>
+
+<h2 id="todo">Todo</h2>
+
+<p>Bluetooth, WiFi, Wallpapers and ranger.</p>
+
+
+</div>
+
+          </div>
+        </div>
+      </body>
+    </body>
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>

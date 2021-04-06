@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      My Jekyll Setup &middot; Jamie O'Reilly-Gall
+    
+  </title>
+
+  
+  <link rel="canonical" href="/notes/jekyll/jekyll-setup/">
+  
+
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" checked>
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Notes, written with <a href="https://jekyllrb.com" target="_blank">Jekyll</a> using the <a href="https://lanyon.getpoole.com/">Lanyon</a> theme.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/notes/jekyll/">Jekyll Notes</a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/notes/linux/">Linux Notes</a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    <span class="sidebar-nav-item">Currently v1.1.0</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2021. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <body class="layout-reverse theme-base-08">
+        <div class = "wrap">
+          <div class="masthead">
+            <div class="container">
+              <h3 class="masthead-title">
+                <a href="/" title="Home">Jamie O'Reilly-Gall</a>
+                <small>Blog/Notes</small>
+              </h3>
+            </div>
+          </div>
+
+          <div class="container content">
+            <!-- 
+
+<a href=/notes/jekyll>/jekyll</a> -->
+
+<div class="notes">
+  <h1 class="notes-title">My Jekyll Setup</h1>
+  <h3 id="table-of-contents">Table of Contents</h3>
+<ul>
+  <li><a href="#lanyon-settings">Lanyon Settings</a></li>
+  <li><a href="#jekyll-scholar">jekyll-scholar</a>
+    <ul>
+      <li><a href="#csl-files">CSL files</a></li>
+      <li><a href="#hyperlinks-in-the-url">Hyperlinks in the URL</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="lanyon-settings">Lanyon Settings</h2>
+
+<p>This site is running on a modified version of the <a href="https://github.com/poole/lanyon">Lanyon</a> theme - modifications are:</p>
+
+<ul>
+  <li>
+    <p>Sidebar is defaulted to open by editing <code class="language-plaintext highlighter-rouge">sidebar.html</code></p>
+
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">class=</span><span class="s">"sidebar-checkbox"</span> <span class="na">id=</span><span class="s">"sidebar-checkbox"</span> <span class="na">checked</span><span class="nt">&gt;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Default layout has the sidebar position swapped using</p>
+
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;body</span> <span class="na">class=</span><span class="s">"layout-reverse sidebar-overlay"</span><span class="nt">&gt;</span>
+</code></pre></div>    </div>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">public/js/script.js</code> is commented out - this means that clicking on the screen doesn’t minimise the sidebar (it made clicking on links minimise then instantly maximise the sidebar, as sidebar is defaulted to open).</li>
+  <li>
+    <p>On line 83 of <code class="language-plaintext highlighter-rouge">public/css/lanyon.css</code> the <code class="language-plaintext highlighter-rouge">max-width</code> field upped from 38 to 56.</p>
+
+    <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">56em</span><span class="p">)</span> <span class="p">{</span>
+<span class="nc">.container</span> <span class="p">{</span>
+  <span class="nl">max-width</span><span class="p">:</span> <span class="m">56rem</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="jekyll-scholar">jekyll-scholar</h2>
+
+<p>jekyll-scholar is used to manage references using a familiar .bib files and liquid tags. You need a .csl file to define how you want your references to render - this file goes in the assets folder. I am using a modified version of the ieee style.</p>
+
+<h3 id="csl-files">CSL files</h3>
+
+<p>Citation Style Language is an XML-esque language used to define bibliography formatting. I have commented out part that says “Online” as it clutters up the rendered references.</p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nt">&lt;macro</span> <span class="na">name=</span><span class="s">"access"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;choose&gt;</span>
+      <span class="nt">&lt;if</span> <span class="na">variable=</span><span class="s">"URL"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;group</span> <span class="na">delimiter=</span><span class="s">". "</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;group</span> <span class="na">delimiter=</span><span class="s">": "</span><span class="nt">&gt;</span>
+            <span class="c">&lt;!-- &lt;text term="available at" text-case="capitalize-first"/&gt; --&gt;</span>
+            <span class="nt">&lt;text</span> <span class="na">variable=</span><span class="s">"URL"</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;/group&gt;</span>
+          <span class="nt">&lt;group</span> <span class="na">prefix=</span><span class="s">"["</span> <span class="na">suffix=</span><span class="s">"]"</span> <span class="na">delimiter=</span><span class="s">": "</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;text</span> <span class="na">term=</span><span class="s">"accessed"</span> <span class="na">text-case=</span><span class="s">"capitalize-first"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;date</span> <span class="na">variable=</span><span class="s">"accessed"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;date-part</span> <span class="na">name=</span><span class="s">"day"</span> <span class="na">form=</span><span class="s">"numeric-leading-zeros"</span> <span class="na">suffix=</span><span class="s">"-"</span><span class="nt">/&gt;</span>
+              <span class="nt">&lt;date-part</span> <span class="na">name=</span><span class="s">"month"</span> <span class="na">form=</span><span class="s">"short"</span> <span class="na">suffix=</span><span class="s">"-"</span> <span class="na">strip-periods=</span><span class="s">"true"</span><span class="nt">/&gt;</span>
+              <span class="nt">&lt;date-part</span> <span class="na">name=</span><span class="s">"year"</span> <span class="na">form=</span><span class="s">"long"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/date&gt;</span>
+          <span class="nt">&lt;/group&gt;</span>
+        <span class="nt">&lt;/group&gt;</span>
+      <span class="nt">&lt;/if&gt;</span>
+    <span class="nt">&lt;/choose&gt;</span>
+  <span class="nt">&lt;/macro&gt;</span>
+</code></pre></div></div>
+
+<p>I was hoping to be able to inject raw HTML into this to support hyperlinks, but it looks like the rendering engine encodes the HTML code.</p>
+
+<h3 id="hyperlinks-in-the-url">Hyperlinks in the URL</h3>
+
+<p>I wanted to have any URL fields in my bibliography render as hyperlinks. I tried editing the above CSL, as well as a <a href="/notes/jekyll/monkey-patching">monkey-patch</a>, but neither worked.</p>
+
+<p>I found that by adding a <code class="language-plaintext highlighter-rouge">latex</code> filter to the jekyll-scholar config in the root <code class="language-plaintext highlighter-rouge">_config</code> file</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">scholar</span><span class="pi">:</span>
+  <span class="na">style</span><span class="pi">:</span> <span class="s">assets/bibliography/ieee-with-url.csl</span>
+  <span class="na">bibtex_filters</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">latex</span>
+</code></pre></div></div>
+<p>I was then able to write raw html in my .bib file, i.e.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@online{bashspecialvar,
+url = {&lt;a href="https://www.gnu.org/software/bash/manual/html_node/Special-Parameters.html"&gt;https://www.gnu.org/software/bash/manual/html_node/Special-Parameters.html&lt;/a&gt;},
+addendum = "(accessed: 01.01.2021)",
+keywords = "bash, linux"
+}
+</code></pre></div></div>
+<p>which then rendered the url field as a hyperlink. Whilst this works, it means the .bib file isn’t really usable outside of Jekyll.</p>
+
+</div>
+
+          </div>
+        </div>
+      </body>
+    </body>
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>
